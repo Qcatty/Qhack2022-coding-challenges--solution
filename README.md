@@ -6,7 +6,7 @@ we just have the screenshot of the old score :( , we forgot to take  the screens
 
 ![image](https://user-images.githubusercontent.com/70172995/158463166-8dfd6289-b205-45bb-8b2c-a99dbc38a296.png)
 
-The Challenge problems are divided into 5 categories:
+# The Challenge problems are divided into 5 categories:
 
 ### -PennyLane 101
 ### -Quantum Algorithms
