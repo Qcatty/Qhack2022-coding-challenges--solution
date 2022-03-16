@@ -8,22 +8,22 @@ we just have the screenshot of the old score :( , we forgot to take  the screens
 
 The Challenge problems are divided into 5 categories:
 
--PennyLane 101
--Quantum Algorithms
--Quantum Machine Learning
-   --> Generating Fourier State
-   --> Who Likes The Beatles
-   --> Ising On TheCake
-   --> Building QRAM
-   --> UDMIS_
--Quantum Chemistry
-   --> Particle Conservation
-   --> Optimizing Measurements
-   --> Universality of Givens Rotations
-   -->  Triple Givens [400 points]
-   --> Mind the Gap [500 points
+### -PennyLane 101
+### -Quantum Algorithms
+### -Quantum Machine Learning
+   ##### --> Generating Fourier State
+   ##### --> Who Likes The Beatles
+   ##### --> Ising On TheCake
+   ##### --> Building QRAM
+   ##### --> UDMIS_
+### -Quantum Chemistry
+  #### --> Particle Conservation
+  #### --> Optimizing Measurements
+  #### --> Universality of Givens Rotations
+  #### -->  Triple Givens [400 points]
+  #### --> Mind the Gap [500 points
 
--Quantum Games
+### -Quantum Games
 
 ## Sponsors 
 ![image](https://user-images.githubusercontent.com/70172995/158469244-c7d3ca7b-c685-4f1c-b0ca-cb436edb0ae3.png)
