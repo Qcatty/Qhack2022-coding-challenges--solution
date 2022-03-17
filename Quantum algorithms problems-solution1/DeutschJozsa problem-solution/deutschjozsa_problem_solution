@@ -63,5 +63,3 @@ if __name__ == "__main__":
     output = deutsch_jozsa(oracle)
     print(output)
 
-
-by Khai Asia @KhaiJP
