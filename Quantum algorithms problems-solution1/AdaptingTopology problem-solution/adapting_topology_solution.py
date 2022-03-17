@@ -83,3 +83,4 @@ if __name__ == "__main__":
     output = n_swaps(qml.CNOT(wires=[int(i) for i in inputs]))
     print(f"{output}")
 
+

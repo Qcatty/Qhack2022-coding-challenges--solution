@@ -1,0 +1,80 @@
+#! /usr/bin/python3
+
+import sys
+from pennylane import numpy as np
+import pennylane as qml
+
+
+def qRAM(thetas):
+    """Function that generates the superposition state explained above given the thetas angles.
+
+    Args:
+        - thetas (list(float)): list of angles to apply in the rotations.
+
+    Returns:
+        - (list(complex)): final state.
+    """
+
+    # QHACK #
+
+
+    # Use this space to create auxiliary functions if you need it.
+    
+
+    # QHACK #
+
+    dev = qml.device("default.qubit", wires=range(4))
+
+    @qml.qnode(dev)
+    def circuit():
+
+        # QHACK #
+        for index in range(3):
+            qml.Hadamard(wires=index)
+        # qml.PauliY(wires=3)
+        for address, theta in enumerate(thetas):
+            ## if address is 6, wire_number_in_binary is 110
+            wire_number_in_binary = format(address, "03b")
+            
+            # check if binary expansion above is properly works
+            # print(address, wire_number_in_binary)
+
+            ## make corresponding address qubits 111
+            for index, j in enumerate(wire_number_in_binary):
+                if j=='0':
+                    qml.PauliX(wires=index)
+
+            ## C^(3)RY(theta) = CCCRY(theta)
+            ## this is done by CRY(theta/2), C^(2)RY(theta/2) and Toffoli
+            qml.CRY(theta/2, wires=[2,3])
+            qml.Toffoli(wires=[0,1,2])
+            qml.CRY(theta/2, wires=[2,3]).inv()
+            qml.Toffoli(wires=[0,1,2])
+            ## C^(2)RY part
+            qml.CRY(theta/4, wires=[1,3])
+            qml.CNOT(wires=[0,1])
+            qml.CRY(theta/4, wires=[1,3]).inv()
+            qml.CNOT(wires=[0,1])
+            qml.CRY(theta/4, wires=[0,3])
+
+            ## bring 111 back to the original address. uncomputing
+            for index, j in enumerate(wire_number_in_binary):
+                if j=='0':
+                    qml.PauliX(wires=index)
+        
+        # Create your circuit: the first three qubits will refer to the index, the fourth to the RY rotation.
+        # QHACK #
+
+        return qml.state()
+
+    return circuit()
+
+
+if __name__ == "__main__":
+    # DO NOT MODIFY anything in this code block
+    inputs = sys.stdin.read().split(",")
+    thetas = np.array(inputs, dtype=float)
+
+    output = qRAM(thetas)
+    output = [float(i.real.round(6)) for i in output]
+    print(*output, sep=",")
